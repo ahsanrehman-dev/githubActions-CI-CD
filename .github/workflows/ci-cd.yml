@@ -1,5 +1,3 @@
-
-
 on: 
   push: 
     branches: ["main"]
@@ -8,18 +6,10 @@ on:
 
 jobs: 
   build:
-    strategy: 
-      matrix: 
-        node-version: [22.x]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js 
+    steps: 
+      - uses: ubuntu-latest
+      - name: Use Node.js
         uses: actions/setup-node@v4
-        with:
-          node-version: ${{matrix.nodev-version}}
-
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
-
