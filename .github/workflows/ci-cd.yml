@@ -8,11 +8,13 @@ on:
 
 jobs: 
   build:
-
+    strategy: 
+      matrix: 
+        node-version: [22.x]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js ${{22.x}}
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
 
       - run: npm ci
