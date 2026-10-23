@@ -5,9 +5,9 @@ on:
     branches: ["main"]
 
 jobs: 
+  runs-on: ubuntu-latest
   build:
     steps: 
-      - uses: ubuntu-latest
       - name: Use Node.js
         uses: actions/setup-node@v4
       - run: npm ci
