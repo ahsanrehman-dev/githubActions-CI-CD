@@ -16,6 +16,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Use Node.js 
         uses: actions/setup-node@v4
+        with:
+          node-version: ${{matrix.nodev-version}}
 
       - run: npm ci
       - run: npm run build --if-present
